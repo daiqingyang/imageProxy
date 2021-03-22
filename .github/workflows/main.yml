@@ -11,8 +11,6 @@ jobs:
         target_repository: registry.cn-beijing.aliyuncs.com/lvandai/controller:v0.44.0
         target_username: ${{ secrets.ALIYUN_USERNAME }}
         target_password: ${{ secrets.aliyun_passwd }}
-    
-    steps:
     - name: 2Sync From Docker Hun to Aliyun
       uses: onichandame/docker-registry-sync-action@master
       with:
@@ -20,7 +18,6 @@ jobs:
         target_repository: registry.cn-beijing.aliyuncs.com/lvandai/kube-webhook-certgen:v1.5.1
         target_username: ${{ secrets.ALIYUN_USERNAME }}
         target_password: ${{ secrets.aliyun_passwd }}
-    steps:
     - name: 3Sync From Docker Hun to Aliyun
       uses: onichandame/docker-registry-sync-action@master
       with:
