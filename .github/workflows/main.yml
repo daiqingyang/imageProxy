@@ -1,0 +1,13 @@
+name: Sync Registry
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Sync From Docker Hun to Aliyun
+      uses: onichandame/docker-registry-sync-action@master
+      with:
+        source_repository: k8s.gcr.io/ingress-nginx/controller:v0.44.0
+        target_repository: registry.cn-beijing.aliyuncs.com/lvandai/controller:v0.44.0
+        target_username: ${{ secrets.ALIYUN_USERNAME }}
+        target_password: ${{ secrets.ALIYUN_PASSWD }}
