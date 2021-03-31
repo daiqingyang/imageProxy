@@ -25,3 +25,10 @@ jobs:
         target_repository: registry.cn-beijing.aliyuncs.com/lvandai/defaultbackend-amd64:1.5
         target_username: ${{ secrets.ALIYUN_USERNAME }}
         target_password: ${{ secrets.aliyun_passwd }}
+    - name: 4Sync From Docker Hun to Aliyun
+      uses: onichandame/docker-registry-sync-action@master
+      with:
+        source_repository: gcr.io/distroless/static:nonroot
+        target_repository: registry.cn-beijing.aliyuncs.com/lvandai/static:nonroot
+        target_username: ${{ secrets.ALIYUN_USERNAME }}
+        target_password: ${{ secrets.aliyun_passwd }}
