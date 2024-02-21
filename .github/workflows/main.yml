@@ -4,14 +4,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: env
-      run: |
-       curl https://ecr-online.juan.cn
     - name: Sync From Docker Hun to ecr
       uses: onichandame/docker-registry-sync-action@master
       with:
         source_repository: registry.k8s.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2
-        target_repository: ecr-online.juan.cn/public/nfs-subdir-external-provisioner:v4.0.2
+        target_repository: swr.cn-north-4.myhuaweicloud.com/huawei-juan/nfs-subdir-external-provisioner:v4.0.2
         target_username: ${{ secrets.ECR_USERNAME }}
         target_password: ${{ secrets.ECR_PASSWD }}
    
