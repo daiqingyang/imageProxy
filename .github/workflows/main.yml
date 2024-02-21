@@ -4,31 +4,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Sync From Docker Hun to Aliyun
+    - name: Sync From Docker Hun to ecr
       uses: onichandame/docker-registry-sync-action@master
       with:
-        source_repository: k8s.gcr.io/ingress-nginx/controller:v0.44.0
-        target_repository: registry.cn-beijing.aliyuncs.com/lvandai/controller:v0.44.0
-        target_username: ${{ secrets.ALIYUN_USERNAME }}
-        target_password: ${{ secrets.aliyun_passwd }}
-    - name: 2Sync From Docker Hun to Aliyun
-      uses: onichandame/docker-registry-sync-action@master
-      with:
-        source_repository: docker.io/jettech/kube-webhook-certgen:v1.5.1
-        target_repository: registry.cn-beijing.aliyuncs.com/lvandai/kube-webhook-certgen:v1.5.1
-        target_username: ${{ secrets.ALIYUN_USERNAME }}
-        target_password: ${{ secrets.aliyun_passwd }}
-    - name: 3Sync From Docker Hun to Aliyun
-      uses: onichandame/docker-registry-sync-action@master
-      with:
-        source_repository: k8s.gcr.io/defaultbackend-amd64:1.5
-        target_repository: registry.cn-beijing.aliyuncs.com/lvandai/defaultbackend-amd64:1.5
-        target_username: ${{ secrets.ALIYUN_USERNAME }}
-        target_password: ${{ secrets.aliyun_passwd }}
-    - name: 4Sync From Docker Hun to Aliyun
-      uses: onichandame/docker-registry-sync-action@master
-      with:
-        source_repository: gcr.io/distroless/static:nonroot
-        target_repository: registry.cn-beijing.aliyuncs.com/lvandai/static:nonroot
-        target_username: ${{ secrets.ALIYUN_USERNAME }}
-        target_password: ${{ secrets.aliyun_passwd }}
+        source_repository: registry.k8s.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2
+        target_repository: ecr-online.juan.cn/public/nfs-subdir-external-provisioner:v4.0.2
+        target_username: ${{ secrets.ECR_USERNAME }}
+        target_password: ${{ secrets.ECR_PASSWD }}
+   
