@@ -6,7 +6,7 @@ jobs:
     steps:
     - name: env
       run: |
-       nslookup ecr-online.juan.cn
+       docker pull ecr-online.juan.cn/public/whoami
     - name: Sync From Docker Hun to ecr
       uses: onichandame/docker-registry-sync-action@master
       with:
